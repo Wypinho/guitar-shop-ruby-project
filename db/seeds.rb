@@ -17,5 +17,11 @@ manufacturer3 = Manufacturer.new({
   })
 manufacturer3.save()
 
+guitar1 = Guitar.new({
+  'name' => "LX1E",
+  'description' => "Little Martin travel electro acoustic",
+  ''
+  })
+
 binding.pry
 nil
