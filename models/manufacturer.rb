@@ -37,4 +37,12 @@ class Manufacturer
     return Manufacturer.new(result.first)
   end
 
+  def guitars()
+    sql = "SELECT * FROM guitars
+          WHERE manufacturer_id = $1;"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map{|guitar| Guitar.new(guitar)}
+  end
+
 end

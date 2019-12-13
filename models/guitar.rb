@@ -66,6 +66,7 @@ class Guitar
           WHERE id = $1;"
     values = [@manufacturer_id]
     result = SqlRunner.run(sql, values)
+    # why do I need .first here? Nicked it from the Zombies site!
     return Manufacturer.new(result.first)
   end
 
