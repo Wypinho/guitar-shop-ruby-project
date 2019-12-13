@@ -61,4 +61,12 @@ class Guitar
     SqlRunner.run(sql, values)
   end
 
+  def manufacturer()
+    sql = "SELECT * FROM manufacturers
+          WHERE id = $1;"
+    values = [@manufacturer_id]
+    result = SqlRunner.run(sql, values)
+    return Manufacturer.new(result.first)
+  end
+
 end
