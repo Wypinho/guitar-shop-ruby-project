@@ -23,14 +23,8 @@ class Guitar
           buying_cost,
           selling_price,
           manufacturer_id
-          ) VALUES (
-          $1,
-          $2,
-          $3,
-          $4,
-          $5,
-          $6
-          ) RETURNING id;"
+          ) VALUES ($1, $2, $3, $4, $5, $6)
+          RETURNING id;"
     values = [@name, @description, @stock_quantity, @buying_cost, @selling_price, @manufacturer_id]
     @id = SqlRunner.run(sql, values)[0]['id'].to_i
   end
@@ -52,6 +46,19 @@ class Guitar
     values = [id]
     result = SqlRunner.run(sql, values)
     return Guitar.new(result.first)
+  end
+
+  def update()
+    sql = "UPDATE guitars SET (
+          name,
+          description,
+          stock_quantity,
+          buying_cost,
+          selling_price
+          ) = ($1, $2, $3, $4, $5)
+          WHERE id = $6;"
+    values = [@name, @description, @stock_quantity, @buying_cost, @selling_price, @id]
+    SqlRunner.run(sql, values)
   end
 
 end
