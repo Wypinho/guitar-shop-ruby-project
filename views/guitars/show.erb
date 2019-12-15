@@ -1,7 +1,12 @@
+<h1><a href="/">STRUNG OUT</a></h1>
+
 <h1><%= @guitar.manufacturer.name %> <%= @guitar.name %></h1>
 
 <p>Description: <%= @guitar.description %></p>
 <p>In stock: <%= @guitar.stock_quantity %></p>
-<p>Wholesale cost: <%= @guitar.buying_cost %></p>
-<p>Price: <%= @guitar.selling_price %></p>
-<!-- <p>Manufacturer: </p> -->
+<p>Wholesale cost: £<%= sprintf("%.2f", @guitar.buying_cost) %></p>
+<p>Price: £<%= sprintf("%.2f", @guitar.selling_price) %></p>
+
+<form class="" action="/guitars/<%= @guitar.id %>/edit" method="post">
+  <input class="button" type="submit" value="Edit">
+</form>
