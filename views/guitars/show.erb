@@ -7,6 +7,6 @@
 <p>Wholesale cost: £<%= sprintf("%.2f", @guitar.buying_cost) %></p>
 <p>Price: £<%= sprintf("%.2f", @guitar.selling_price) %></p>
 
-<form class="" action="/guitars/<%= @guitar.id %>/edit" method="post">
+<form class="" action="/guitars/<%= @guitar.id %>/edit" method="get">
   <input class="button" type="submit" value="Edit">
 </form>
