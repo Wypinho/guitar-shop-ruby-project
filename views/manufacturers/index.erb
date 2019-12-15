@@ -1,3 +1,7 @@
 <% @manufacturers.each do |manufacturer| %>
   <p><a href="/manufacturers/<%= manufacturer.id %>"><%= manufacturer.name %></a></p>
 <% end %>
+
+<form class="" action="/manufacturers/new" method="get">
+  <input class="button" type="submit" value="Add New">
+</form>
