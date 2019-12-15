@@ -1,1 +1,10 @@
 <h1><%= @manufacturer.name %></h1>
+
+<h2>Guitars in Stock: </h2>
+<ul>
+  <% @guitars.each do|guitar| %>
+  <li>
+    <a href="/guitars/<%= guitar.id %>"><%= guitar.name %></a>
+  </li>
+  <% end %>
+</ul>

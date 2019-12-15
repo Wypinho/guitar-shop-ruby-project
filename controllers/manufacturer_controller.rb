@@ -10,6 +10,7 @@ end
 
 get '/manufacturers/:id' do
   @manufacturer = Manufacturer.find(params['id'].to_i)
+  @guitars = @manufacturer.guitars()
   erb(:"manufacturers/show")
 end
 
