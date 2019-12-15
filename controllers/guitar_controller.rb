@@ -9,6 +9,17 @@ get '/guitars' do
   erb(:"guitars/index")
 end
 
+get '/guitars/new' do
+  @manufacturers = Manufacturer.all()
+  erb(:"guitars/new")
+end
+
+post '/guitars' do
+  guitar = Guitar.new(params)
+  guitar.save()
+  redirect to '/guitars'
+end
+
 get '/guitars/:id' do
   @guitar = Guitar.find(params['id'].to_i)
   erb(:"guitars/show")
