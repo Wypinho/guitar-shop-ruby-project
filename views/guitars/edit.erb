@@ -3,15 +3,25 @@
   <label for="manufacturer-select">Select Manufacturer: </label>
   <select name="manufacturer_id" id="manufacturer-select">
     <% @manufacturers.each do |manufacturer| %>
-    <option value="<%= manufacturer.id %>"><%= manufacturer.name %></option>
+    <option value="<%= manufacturer.id %>" <% if manufacturer.name == @guitar.manufacturer.name %> selected="selected" <% end %>><%= manufacturer.name %></option>
     <% end %>
   </select>
 
   <label for="name">Name: </label>
   <input type="text" name="name" id="name" value="<%= @guitar.name %>">
 
-  <label for="description">Last Name: </label>
+  <label for="description">Description: </label>
   <input type="text" name="description" id="description" value="<%= @guitar.description %>">
+
+  <label for="quantity">In stock: </label>
+  <input type="number" min="0" name="stock_quantity" id="quantity" value="<%= @guitar.stock_quantity %>">
+
+  <label for="cost">Wholesale cost: </label>
+  <input type="number" min="0" name="buying_cost" id="cost" value="<%= @guitar.buying_cost %>">
+
+  <label for="price">Price: </label>
+  <input type="number" min="0" name="selling_price" id="price" value="<%= @guitar.selling_price %>">
+
 
   <input class="button" type="submit" value="Edit">
 </form>
