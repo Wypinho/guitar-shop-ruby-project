@@ -3,8 +3,8 @@
 <h1><%= @guitar.manufacturer.name %> <%= @guitar.name %></h1>
 
 <p>Description: <%= @guitar.description %></p>
-<% if @guitar.stock_quantity < 3 %><p>In stock: <%= @guitar.stock_quantity %> - LOW STOCK!!</p>
-<% elsif @guitar.stock_quantity == 0 %><p>In stock: <%= @guitar.stock_quantity %> - OUT OF STOCK!!</p>
+<% if @guitar.stock_quantity == 0 %><p>In stock: <%= @guitar.stock_quantity %> - OUT OF STOCK!!</p>
+<% elsif @guitar.stock_quantity < 3 %><p>In stock: <%= @guitar.stock_quantity %> - LOW STOCK!!</p>
 <% else %><p>In stock: <%= @guitar.stock_quantity %></p>
 <% end %>
 <p>Wholesale cost: £<%= sprintf("%.2f", @guitar.buying_cost) %></p>

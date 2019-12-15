@@ -21,6 +21,7 @@ get '/guitars/:id/edit' do
 end
 
 post '/guitars/:id' do
-  Guitar.new(params).update
-  redirect to '/guitars'
+  guitar = Guitar.new(params).update
+  #doesn't work with single quotes... redirect to '/guitars/#{(params['id'].to_i)}'
+  redirect to "/guitars/#{(params['id'].to_i)}"
 end
