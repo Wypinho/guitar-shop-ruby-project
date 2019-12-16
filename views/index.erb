@@ -4,6 +4,17 @@
   <input class="button" type="submit" value="Add New">
 </form>
 
+<!-- put in a get form and only find guitars where manufacturer matches -->
+<form class="" action="/" method="get">
+  <label for="manufacturer-select">Choose Manufacturer: </label>
+  <select name="manufacturer_id" id="manufacturer-select">
+    <% @manufacturers.each do |manufacturer| %>
+    <option value="<%= manufacturer.id %>"><%= manufacturer.name %></option>
+    <% end %>
+  </select>
+  <input class="button" type="submit" value="Filter">
+</form>
+
 <table>
   <tr>
     <th>Name</th>

@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require('pry')
 
 class Guitar
 
@@ -68,6 +69,15 @@ class Guitar
     result = SqlRunner.run(sql, values)
     # why do I need .first here? Nicked it from the Zombies site!
     return Manufacturer.new(result.first)
+  end
+
+  def self.find_by_manufacturer(manufacturer_id)
+    binding.pry
+    sql = "SELECT * FROM guitars
+          WHERE manufacturer_id = $1;"
+    values = [manufacturer_id]
+    results = SqlRunner.run(sql, values)
+    return results.map{|guitar| Guitar.new(guitar)}
   end
 
 end

@@ -1,6 +1,6 @@
 require_relative('../models/guitar.rb')
 require_relative('../models/manufacturer.rb')
-require('pry')
+# require('pry')
 
 Guitar.delete_all()
 Manufacturer.delete_all()
@@ -55,5 +55,7 @@ guitar4 = Guitar.new({
   })
 guitar4.save()
 
-binding.pry
+Guitar.find_by_manufacturer(51)
+
+# binding.pry
 nil
