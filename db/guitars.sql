@@ -10,6 +10,7 @@ CREATE TABLE guitars
 (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255),
+  type VARCHAR(255),
   description VARCHAR(255),
   stock_quantity INT,
   buying_cost INT,

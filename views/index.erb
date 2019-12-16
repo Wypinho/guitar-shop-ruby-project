@@ -20,6 +20,8 @@
   <tr>
     <th>Name</th>
     <th></th>
+    <th>Type</th>
+    <th></th>
     <th>Description</th>
     <th></th>
     <th>In stock</th>
@@ -33,6 +35,8 @@
   <tr>
   <% @guitars.each do |guitar| %>
     <td><%= guitar.manufacturer.name %> <%= guitar.name %></td>
+    <td>|</td>
+    <td><%= guitar.type %></td>
     <td>|</td>
     <td><%= guitar.description %></td>
     <td>|</td>
