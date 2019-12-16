@@ -5,5 +5,6 @@ require_relative('controllers/manufacturer_controller')
 also_reload('./models/*')
 
 get '/' do
+  @guitars = Guitar.all()
   erb(:index)
 end
