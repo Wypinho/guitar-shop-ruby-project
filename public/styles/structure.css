@@ -1,11 +1,11 @@
 body {
-  /* background: url('/images/dark-rider-JmVaNyemtN8-unsplash.jpg'); */
-  /* background-size: 100%; */
-  /* background-repeat: no-repeat; */
-  /* color: gold; */
-  /* font-family: 'Arial'; */
+  background: url('/images/dark-rider-JmVaNyemtN8-unsplash.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  color: gold;
+  font-family: 'Arial';
 }
 
 h1, h2 {
 
-}
+} 

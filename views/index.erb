@@ -10,6 +10,8 @@
     <th></th>
     <th>Description</th>
     <th></th>
+    <th>In stock</th>
+    <th></th>
     <th>Wholesale cost</th>
     <th></th>
     <th>Price</th>
@@ -18,7 +20,7 @@
   </tr>
   <tr>
   <% @guitars.each do |guitar| %>
-    <td><a href="/guitars/<%= guitar.id %>"><%= guitar.manufacturer.name %> <%= guitar.name %></a></td>
+    <td><%= guitar.manufacturer.name %> <%= guitar.name %></td>
     <td>|</td>
     <td><%= guitar.description %></td>
     <td>|</td>
