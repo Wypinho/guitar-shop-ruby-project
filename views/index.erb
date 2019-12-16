@@ -4,19 +4,41 @@
   <input class="button" type="submit" value="Add New">
 </form>
 
-<% @guitars.each do |guitar| %>
-  <p><a href="/guitars/<%= guitar.id %>"><%= guitar.manufacturer.name %> <%= guitar.name %></a> Description: <%= guitar.description %></p>
-
-  <p>Description: <%= guitar.description %></p>
-  <% if guitar.stock_quantity == 0 %><p>In stock: <%= guitar.stock_quantity %> - OUT OF STOCK!!</p>
-  <% elsif guitar.stock_quantity < 3 %><p>In stock: <%= guitar.stock_quantity %> - LOW STOCK!!</p>
-  <% else %><p>In stock: <%= guitar.stock_quantity %></p>
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th>Description</th>
+    <th></th>
+    <th>Wholesale cost</th>
+    <th></th>
+    <th>Price</th>
+    <th></th>
+    <th>Markup</th>
+  </tr>
+  <tr>
+  <% @guitars.each do |guitar| %>
+    <td><a href="/guitars/<%= guitar.id %>"><%= guitar.manufacturer.name %> <%= guitar.name %></a></td>
+    <td>|</td>
+    <td><%= guitar.description %></td>
+    <td>|</td>
+    <% if guitar.stock_quantity == 0 %><td><%= guitar.stock_quantity %> - OUT OF STOCK!!</td>
+    <% elsif guitar.stock_quantity < 3 %><td><%= guitar.stock_quantity %> - LOW STOCK!!</td>
+    <% else %><td><%= guitar.stock_quantity %></td>
+    <% end %>
+    <td>|</td>
+    <td>£<%= sprintf("%.2f", guitar.buying_cost) %></td>
+    <td>|</td>
+    <td>£<%= sprintf("%.2f", guitar.selling_price) %></td>
+    <td>|</td>
+    <td>£<%= sprintf("%.2f", guitar.selling_price - guitar.buying_cost) %></td>
+    <td>|</td>
+    <td>
+      <form class="" action="/guitars/<%= guitar.id %>/edit" method="get">
+        <input class="button" type="submit" value="Edit">
+      </form>
+    </td>
+  </tr>
   <% end %>
-  <p>Wholesale cost: £<%= sprintf("%.2f", guitar.buying_cost) %></p>
-  <p>Price: £<%= sprintf("%.2f", guitar.selling_price) %></p>
-  <p>Markup: £<%= sprintf("%.2f", guitar.selling_price - guitar.buying_cost) %></p>
 
-  <form class="" action="/guitars/<%= guitar.id %>/edit" method="get">
-    <input class="button" type="submit" value="Edit">
-  </form>
-<% end %>
+</table>
