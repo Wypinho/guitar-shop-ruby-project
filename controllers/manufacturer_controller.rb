@@ -15,7 +15,7 @@ end
 post '/manufacturers' do
   manufacturer = Manufacturer.new(params)
   manufacturer.save()
-  redirect to '/manufacturers'
+  redirect to '/guitars/new'
 end
 
 get '/manufacturers/:id' do
