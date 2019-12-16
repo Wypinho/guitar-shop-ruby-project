@@ -1,5 +1,5 @@
 require_relative('../db/sql_runner')
-require('pry')
+# require('pry')
 
 class Guitar
 
@@ -72,7 +72,7 @@ class Guitar
   end
 
   def self.find_by_manufacturer(manufacturer_id)
-    binding.pry
+    # binding.pry
     sql = "SELECT * FROM guitars
           WHERE manufacturer_id = $1;"
     values = [manufacturer_id]
