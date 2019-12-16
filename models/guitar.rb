@@ -83,4 +83,13 @@ class Guitar
     return results.map{|guitar| Guitar.new(guitar)}
   end
 
+  def self.find_by_type(type)
+    # binding.pry
+    sql = "SELECT * FROM guitars
+          WHERE type = $1;"
+    values = [type]
+    results = SqlRunner.run(sql, values)
+    return results.map{|guitar| Guitar.new(guitar)}
+  end
+
 end

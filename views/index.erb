@@ -7,12 +7,32 @@
 <form class="" action="/" method="get">
   <label for="manufacturer-select">Choose Manufacturer: </label>
   <select name="manufacturer_id" id="manufacturer-select">
+    <option value=""> </option>
     <% @manufacturers.each do |manufacturer| %>
     <option value="<%= manufacturer.id %>"><%= manufacturer.name %></option>
     <% end %>
   </select>
   <input class="button" type="submit" value="Filter">
   <!-- tried to do with a button but couldn't figure out how... -->
+  <!-- <form class="" action="/" method="get">
+    <input class="button" type="submit" value="Show All">
+  </form> -->
+  <a href="/">Show All</a>
+</form>
+
+<form class="" action="/" method="get">
+  <label for="type-select">Choose Type: </label>
+  <select name="type" id="type-select">
+    <option value=""> </option>
+    <% @guitars.each do |guitar| %>
+    <option value="<%= guitar.type %>"><%= guitar.type %></option>
+    <% end %>
+  </select>
+  <input class="button" type="submit" value="Filter">
+  <!-- tried to do with a button but couldn't figure out how... -->
+  <!-- <form class="" action="/" method="get">
+    <input class="button" type="submit" value="Show All">
+  </form> -->
   <a href="/">Show All</a>
 </form>
 
