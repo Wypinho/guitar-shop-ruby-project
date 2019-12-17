@@ -89,6 +89,7 @@ class Guitar
           WHERE type = $1;"
     values = [type]
     results = SqlRunner.run(sql, values)
+    # logic here to filter duplicates? enumeration!
     return results.map{|guitar| Guitar.new(guitar)}
   end
 

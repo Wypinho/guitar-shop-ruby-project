@@ -15,9 +15,9 @@
   <input class="button" type="submit" value="Filter">
   <!-- tried to do with a button but couldn't figure out how... -->
   <!-- <form class="" action="/" method="get">
-    <input class="button" type="submit" value="Show All">
-  </form> -->
-  <a href="/">Show All</a>
+  <input class="button" type="submit" value="Show All">
+</form> -->
+<a href="/">Show All</a>
 </form>
 
 <form class="" action="/" method="get">
@@ -31,9 +31,9 @@
   <input class="button" type="submit" value="Filter">
   <!-- tried to do with a button but couldn't figure out how... -->
   <!-- <form class="" action="/" method="get">
-    <input class="button" type="submit" value="Show All">
-  </form> -->
-  <a href="/">Show All</a>
+  <input class="button" type="submit" value="Show All">
+</form> -->
+<a href="/">Show All</a>
 </form>
 
 <table>
@@ -53,7 +53,7 @@
     <th>Markup</th>
   </tr>
   <tr>
-  <% @guitars.each do |guitar| %>
+    <% @guitars.each do |guitar| %>
     <td><%= guitar.manufacturer.name %> <%= guitar.name %></td>
     <td>|</td>
     <td><%= guitar.type %></td>
@@ -69,6 +69,7 @@
     <td>|</td>
     <td>£<%= sprintf("%.2f", guitar.selling_price) %></td>
     <td>|</td>
+    <!-- use to keep a total of shops takings? -->
     <td>£<%= sprintf("%.2f", guitar.selling_price - guitar.buying_cost) %></td>
     <td>|</td>
     <td>
