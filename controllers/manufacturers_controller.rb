@@ -23,10 +23,3 @@ get '/manufacturers/:id' do
   @guitars = @manufacturer.guitars()
   erb(:"manufacturers/show")
 end
-
-
-# get '/manufacturers/:id/edit' do
-#   @guitar = Guitar.find(params['id'].to_i)
-#   @manufacturers = Manufacturer.all()
-#   erb(:"manufacturers/edit")
-# end

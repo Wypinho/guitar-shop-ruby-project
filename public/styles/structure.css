@@ -30,6 +30,12 @@ select,
   color: red;
 }
 
+/* doing nothing... */
+/* form label {
+  -webkit-appearance: none;
+  padding-top: : 50px;
+} */
+
 a {
   text-decoration: none;
   color: red;

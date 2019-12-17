@@ -1,7 +1,0 @@
-<form class="" action="/guitars/new" method="get">
-  <input class="button" type="submit" value="Add New">
-</form>
-
-<% @guitars.each do |guitar| %>
-  <p><a href="/guitars/<%= guitar.id %>"><%= guitar.manufacturer.name %> <%= guitar.name %></a></p>
-<% end %>

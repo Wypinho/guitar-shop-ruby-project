@@ -17,11 +17,6 @@ post '/guitars' do
   redirect to '/'
 end
 
-# get '/guitars/:id' do
-#   @guitar = Guitar.find(params['id'].to_i)
-#   erb(:"guitars/show")
-# end
-
 get '/guitars/:id/edit' do
   @guitar = Guitar.find(params['id'].to_i)
   @manufacturers = Manufacturer.all()
