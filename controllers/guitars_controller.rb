@@ -25,6 +25,7 @@ end
 get '/guitars/:id/edit' do
   @guitar = Guitar.find(params['id'].to_i)
   @manufacturers = Manufacturer.all()
+  @guitar_types = Guitar.find_available_types()
   erb(:"guitars/edit")
 end
 
