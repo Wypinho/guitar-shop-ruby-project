@@ -1,0 +1,13 @@
+select {
+  -webkit-appearance: none;
+}
+
+.button {
+  border:0px none;
+  border-radius: 3%;
+  padding: 8px 12px;
+  color: papayawhip;
+  cursor:pointer;
+  font-family: 'Special Elite', cursive;
+  background-color: darkred;
+}
