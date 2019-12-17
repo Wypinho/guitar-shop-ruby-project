@@ -1,14 +1,40 @@
 body {
-  color: gold;
+  color: yellow;
   font-weight: bolder;
   font-family: 'Arial';
   position: relative;
-  /* text outline? */
   background: url('/images/dark-rider-JmVaNyemtN8-unsplash.jpg');
   background-size: 100%;
   background-repeat: no-repeat;
+  padding: 30px;
 }
 
-/* .image{
-  z-index: -1
-} */
+form .space_out {
+  padding: 20px;
+  margin: 20px;
+}
+
+button,
+input,
+select,
+[type='button'] {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 50; /* 2 */
+  padding: 20;
+}
+
+.fa-music {
+  padding: 0px 5px;
+  color: red;
+}
+
+a {
+  text-decoration: none;
+  color: red;
+}
+
+a:hover {
+  color: darkred;
+}

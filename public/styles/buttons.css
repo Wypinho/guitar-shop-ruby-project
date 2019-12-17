@@ -1,6 +1,6 @@
-select {
+/* select {
   -webkit-appearance: none;
-}
+} */
 
 .button {
   border:0px none;
@@ -8,6 +8,10 @@ select {
   padding: 8px 12px;
   color: papayawhip;
   cursor:pointer;
-  font-family: 'Special Elite', cursive;
-  background-color: darkred;
+  font-family: 'Special Elite';
+  background-color: forestgreen;
+}
+
+.button:hover {
+  background: darkgreen;
 }
