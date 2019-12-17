@@ -12,6 +12,7 @@ get '/' do
   else
     @guitars = Guitar.all()
   end
+  @guitar_types = Guitar.find_available_types()
   @manufacturers = Manufacturer.all()
   erb(:index)
 end

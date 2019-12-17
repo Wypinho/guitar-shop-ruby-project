@@ -24,8 +24,8 @@
   <label for="type-select">Choose Type: </label>
   <select name="type" id="type-select">
     <option value=""> </option>
-    <% @guitars.each do |guitar| %>
-    <option value="<%= guitar.type %>"><%= guitar.type %></option>
+    <% @guitar_types.each do |type| %>
+      <option value="<%= type %>"><%= type %></option>
     <% end %>
   </select>
   <input class="button" type="submit" value="Filter">

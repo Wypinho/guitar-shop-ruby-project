@@ -91,6 +91,15 @@ class Guitar
     results = SqlRunner.run(sql, values)
     # logic here to filter duplicates? enumeration!
     return results.map{|guitar| Guitar.new(guitar)}
+    # return types.uniq{|guitar| guitar.type}
+  end
+
+  def self.find_available_types()
+    sql = "SELECT * FROM guitars;"
+    results = SqlRunner.run(sql)
+    guitars = results.map{|guitar| Guitar.new(guitar)}
+    types = guitars.map{|guitar| guitar.type}
+    return types.uniq
   end
 
 end
