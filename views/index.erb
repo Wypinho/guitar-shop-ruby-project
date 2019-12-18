@@ -1,4 +1,4 @@
-<!-- <h1>Current takings: £</h1> -->
+<h1>Current takings: £<%= sprintf("%.2f", @shop.till) %></h1>
 
 <form class="" action="/guitars/new" method="get">
   <input class="button" type="submit" value="Add New">

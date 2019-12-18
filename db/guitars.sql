@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS shop;
 DROP TABLE IF EXISTS guitars;
 DROP TABLE IF EXISTS manufacturers;
 
@@ -16,4 +17,9 @@ CREATE TABLE guitars
   buying_cost INT,
   selling_price INT,
   manufacturer_id INT REFERENCES manufacturers(id)
+);
+CREATE TABLE shops
+(
+  id SERIAL PRIMARY KEY,
+  till INT
 );

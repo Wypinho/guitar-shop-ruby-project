@@ -1,7 +1,9 @@
 require_relative('../models/guitar.rb')
 require_relative('../models/manufacturer.rb')
+require_relative('../models/shop.rb')
 require('pry')
 
+Shop.delete_all()
 Guitar.delete_all()
 Manufacturer.delete_all()
 
@@ -59,7 +61,10 @@ guitar4 = Guitar.new({
   })
 guitar4.save()
 
-guitars = Guitar.find_by_manufacturer(56)
+shop1 = Shop.new({
+  'till' => 500
+  })
+shop1.save()
 
 binding.pry
 nil

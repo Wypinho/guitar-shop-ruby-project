@@ -2,7 +2,9 @@ require('sinatra')
 require('sinatra/contrib/all')
 require_relative('controllers/guitars_controller')
 require_relative('controllers/manufacturers_controller')
+require_relative('./models/shop.rb')
 also_reload('./models/*')
+# require('pry')
 
 get '/' do
   if params['manufacturer_id']
@@ -14,5 +16,6 @@ get '/' do
   end
   @guitar_types = Guitar.find_available_types()
   @manufacturers = Manufacturer.all()
+  @shop = Shop.new({'till' => 500})
   erb(:index)
 end
