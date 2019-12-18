@@ -26,6 +26,17 @@ end
 
 post '/guitars/:id' do
   guitar = Guitar.new(params).update
-  #doesn't work with single quotes... redirect to '/guitars/#{(params['id'].to_i)}'
   redirect to "/"
+end
+
+get '/guitars/:id/sell' do
+  guitar = Guitar.find(params['id'].to_i)
+  guitar.sell_guitar()
+  redirect to '/'
+end
+
+get '/guitars/:id/order' do
+  guitar = Guitar.find(params['id'].to_i)
+  guitar.order_guitar()
+  redirect to '/'
 end

@@ -16,9 +16,3 @@ get '/' do
   @manufacturers = Manufacturer.all()
   erb(:index)
 end
-
-# get '/:manufacturer_id' do
-#   @guitars = Guitar.find_by_manufacturer(params['manufacturer_id'].to_i)
-#   @manufacturers = Manufacturer.all()
-#   erb(:index)
-# end

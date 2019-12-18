@@ -33,7 +33,8 @@ class Guitar
   end
 
   def self.all()
-    sql = "SELECT * FROM guitars;"
+    sql = "SELECT * FROM guitars
+          ORDER BY manufacturer_id, name;"
     results = SqlRunner.run(sql)
     return results.map{|guitar| Guitar.new(guitar)}
   end
@@ -103,7 +104,18 @@ class Guitar
   end
 
   def sell_guitar()
-    @stock_quantity -= 1
+    if @stock_quantity > 0
+      @stock_quantity -= 1
+      sql = "UPDATE guitars
+            SET stock_quantity = $1
+            WHERE id = $2;"
+      values = [@stock_quantity, @id]
+      SqlRunner.run(sql, values)
+    end
+  end
+
+  def order_guitar()
+    @stock_quantity += 1
     sql = "UPDATE guitars
           SET stock_quantity = $1
           WHERE id = $2;"

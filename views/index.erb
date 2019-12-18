@@ -73,21 +73,21 @@
     <td>£<%= sprintf("%.2f", guitar.selling_price - guitar.buying_cost) %></td>
     <td>|</td>
     <td>
-      <form class="" action="/" method="get">
+      <!-- try doing the way that edit works, pass a guitar id in to just update that guitar. -->
+      <form class="" action="/guitars/<%= guitar.id %>/sell" method="get">
         <!-- would like this button to remove stock and add to a shop takings total... -->
-        <input class="button" onclick="<% guitar.sell_guitar %>" type="button" value="Sell">
+        <input class="button" type="submit" value="Sell">
       </form>
     </td>
     <td>
-      <form class="" action="/guitars/<%= guitar.id %>" method="get">
+      <form class="" action="/guitars/<%= guitar.id %>/order" method="get">
         <input <% if guitar.stock_quantity < 3 %> class="button--low-stock" <% else %> class="button" <% end %> type="submit" value="Order">
       </form>
     </td>
     <td>
-      <form class="" action="/guitars/<%= guitar.id %>/edit" method="get">
+      <form class="" action="/<%= guitar.id %>/edit" method="get">
         <input class="button" type="submit" value="Edit">
       </form>
-      <!-- onclick="alert('This button does nothing.')"  -->
     </td>
   </tr>
   <% end %>
