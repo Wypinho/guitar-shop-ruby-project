@@ -80,7 +80,7 @@
     </td>
     <td>
       <form class="" action="/guitars/<%= guitar.id %>" method="get">
-        <input class="button" type="submit" value="Order">
+        <input <% if guitar.stock_quantity < 3 %> class="button--low-stock" <% else %> class="button" <% end %> type="submit" value="Order">
       </form>
     </td>
     <td>

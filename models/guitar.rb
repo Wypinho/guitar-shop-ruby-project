@@ -102,4 +102,13 @@ class Guitar
     return types.uniq
   end
 
+  def sell_guitar()
+    @stock_quantity -= 1
+    sql = "UPDATE guitars
+          SET stock_quantity = $1
+          WHERE id = $2;"
+    values = [@stock_quantity, @id]
+    SqlRunner(sql, values)
+  end
+
 end

@@ -15,3 +15,17 @@
 .button:hover {
   background: darkgreen;
 }
+
+.button--low-stock {
+  border:0px none;
+  border-radius: 3%;
+  padding: 8px 12px;
+  color: black;
+  cursor:pointer;
+  font-family: 'Special Elite';
+  background-color: red;
+}
+
+.button--low-stock:hover {
+  background: darkred;
+}
