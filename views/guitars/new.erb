@@ -4,34 +4,51 @@
 
 <form class="space_out" action="/guitars" method="post">
 
-  <label for="manufacturer-select">Select Manufacturer: </label>
-  <select name="manufacturer_id" id="manufacturer-select">
-    <% @manufacturers.each do |manufacturer| %>
-    <option value="<%= manufacturer.id %>"><%= manufacturer.name %></option>
-    <% end %>
-  </select><br>
+  <div class="form-row">
+    <label for="manufacturer-select">Select Manufacturer: </label>
+    <select name="manufacturer_id" id="manufacturer-select">
+      <% @manufacturers.each do |manufacturer| %>
+      <option value="<%= manufacturer.id %>"><%= manufacturer.name %></option>
+      <% end %>
+    </select>
+  </div>
 
-  <label for="name">Name: </label>
-  <input type="text" name="name" id="name"><br>
+  <div class="form-row">
+  <!-- wrap in divs instead of using br's and use classes to style -->
+    <label for="name">Name: </label>
+    <input type="text" name="name" id="name">
+  </div>
 
-  <label for="type-select">Choose Type: </label>
-  <select name="type" id="type-select">
-    <% @guitar_types.each do |type| %>
-      <option value="<%= type %>"><%= type %></option>
-    <% end %>
-  </select><br>
+  <div class="form-row">
+    <label for="type-select">Choose Type: </label>
+    <select name="type" id="type-select">
+      <% @guitar_types.each do |type| %>
+        <option value="<%= type %>"><%= type %></option>
+      <% end %>
+    </select>
+  </div>
 
-  <label for="description">Description: </label>
-  <input type="text" name="description" id="description"><br>
+  <div class="form-row">
+    <label for="description">Description: </label>
+    <input type="text" name="description" id="description">
+  </div>
 
-  <label for="quantity">In stock: </label>
-  <input type="number" min="0" name="stock_quantity" id="quantity"><br>
+  <div class="form-row">
+    <label for="quantity">In stock: </label>
+    <input type="number" min="0" name="stock_quantity" id="quantity">
+  </div>
 
-  <label for="cost">Wholesale cost: </label>
-  <input type="number" min="0" name="buying_cost" id="cost"><br>
+  <div class="form-row">
+    <label for="cost">Wholesale cost: </label>
+    <input type="number" min="0" name="buying_cost" id="cost">
+  </div>
 
-  <label for="price">Price: </label>
-  <input type="number" min="0" name="selling_price" id="price"><br>
+  <div class="form-row">
+    <label for="price">Price: </label>
+    <input type="number" min="0" name="selling_price" id="price">
+  </div>
 
-  <input class="button" type="submit" value="Add">
+  <div class="form-row">
+    <input class="button" type="submit" value="Add">
+  </div>
 </form>

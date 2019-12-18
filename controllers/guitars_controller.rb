@@ -32,11 +32,17 @@ end
 get '/guitars/:id/sell' do
   guitar = Guitar.find(params['id'].to_i)
   guitar.sell_guitar()
+  shop = Shop.find()
+  shop.update_till(guitar)
   redirect to '/'
 end
 
 get '/guitars/:id/order' do
+  shop = Shop.find()
   guitar = Guitar.find(params['id'].to_i)
-  guitar.order_guitar()
+  if shop.till >= guitar.buying_cost
+    guitar.order_guitar()
+    shop.update_till(guitar, true)
+  end
   redirect to '/'
 end

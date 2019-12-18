@@ -7,7 +7,7 @@ class Shop
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
-    @till = options['till']
+    @till = options['till'].to_i
   end
 
   def save()
@@ -18,15 +18,28 @@ class Shop
     @id = SqlRunner.run(sql, values)[0]['id'].to_i
   end
 
-  # def self.all()
-  #   sql = "SELECT * FROM shops;"
-  #   results = SqlRunner.run(sql)
-  #   return results.map{|shop| Shop.new(shop)}
-  # end
+  def self.find()
+    sql = "SELECT * FROM shops;"
+    results = SqlRunner.run(sql)
+    return results.map{|shop| Shop.new(shop)}[0]
+  end
 
   def self.delete_all()
     sql = "DELETE FROM shops;"
     SqlRunner.run(sql)
+  end
+
+  def update_till(guitar, buy = false)
+    if buy
+      @till -= guitar.buying_cost
+    else
+      @till += guitar.selling_price
+    end
+    sql = "UPDATE shops
+          SET till = $1
+          WHERE id = $2;"
+    values = [@till, @id]
+    SqlRunner.run(sql, values)
   end
 
   # def self.find(id)

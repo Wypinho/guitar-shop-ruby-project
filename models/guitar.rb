@@ -3,7 +3,7 @@ require_relative('../db/sql_runner')
 
 class Guitar
 
-  attr_reader :id, :manufacturer_id
+  attr_reader :id, :manufacturer_id, :shop_id
   attr_accessor :name, :type, :description, :stock_quantity, :buying_cost, :selling_price
 
   def initialize(options)
@@ -15,6 +15,7 @@ class Guitar
     @buying_cost = options['buying_cost'].to_i
     @selling_price = options['selling_price'].to_i
     @manufacturer_id = options['manufacturer_id'].to_i
+    @shop_id = options['shop_id'].to_i if options['shop_id']
   end
 
   def save()
@@ -25,10 +26,11 @@ class Guitar
           stock_quantity,
           buying_cost,
           selling_price,
-          manufacturer_id
-          ) VALUES ($1, $2, $3, $4, $5, $6, $7)
+          manufacturer_id,
+          shop_id
+          ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
           RETURNING id;"
-    values = [@name, @type, @description, @stock_quantity, @buying_cost, @selling_price, @manufacturer_id]
+    values = [@name, @type, @description, @stock_quantity, @buying_cost, @selling_price, @manufacturer_id, @shop_id]
     @id = SqlRunner.run(sql, values)[0]['id'].to_i
   end
 
@@ -90,9 +92,7 @@ class Guitar
           WHERE type = $1;"
     values = [type]
     results = SqlRunner.run(sql, values)
-    # logic here to filter duplicates? enumeration!
     return results.map{|guitar| Guitar.new(guitar)}
-    # return types.uniq{|guitar| guitar.type}
   end
 
   def self.find_available_types()
@@ -121,6 +121,14 @@ class Guitar
           WHERE id = $2;"
     values = [@stock_quantity, @id]
     SqlRunner.run(sql, values)
+  end
+
+  def shop()
+    sql = "SELECT * FROM shops
+          WHERE id = $1;"
+    values = [@shop_id]
+    result = SqlRunner.run(sql, values)
+    return Shop.new(result.first)
   end
 
 end

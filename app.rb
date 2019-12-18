@@ -16,6 +16,6 @@ get '/' do
   end
   @guitar_types = Guitar.find_available_types()
   @manufacturers = Manufacturer.all()
-  @shop = Shop.new({'till' => 500})
+  @shop = Shop.find()
   erb(:index)
 end
