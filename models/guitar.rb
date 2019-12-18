@@ -108,7 +108,7 @@ class Guitar
           SET stock_quantity = $1
           WHERE id = $2;"
     values = [@stock_quantity, @id]
-    SqlRunner(sql, values)
+    SqlRunner.run(sql, values)
   end
 
 end

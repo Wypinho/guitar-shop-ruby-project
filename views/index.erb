@@ -73,9 +73,9 @@
     <td>£<%= sprintf("%.2f", guitar.selling_price - guitar.buying_cost) %></td>
     <td>|</td>
     <td>
-      <form class="" action="" method="get">
+      <form class="" action="/" method="get">
         <!-- would like this button to remove stock and add to a shop takings total... -->
-        <input class="button" onclick="<% guitar.stock_quantity -= 1 %>" type="button" value="Sell">
+        <input class="button" onclick="<% guitar.sell_guitar %>" type="button" value="Sell">
       </form>
     </td>
     <td>
