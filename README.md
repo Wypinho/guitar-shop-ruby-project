@@ -24,4 +24,4 @@ ruby app.rb
 
 In your browser, navigate to http://localhost:4567/ and you should see the app's main page.
 
-(public/images/strung-out.png)
+![Images or digram](public/images/strung-out.png)
