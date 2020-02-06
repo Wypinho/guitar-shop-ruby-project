@@ -1,6 +1,6 @@
 # Strung Out
 
-Strung Out is a shop inventory Ruby application using the Sinatra web framwork and a Postgres database.
+Strung Out is a shop inventory Ruby application using the Sinatra web framework and a Postgres database.
 
 ## Getting Started
 
@@ -21,3 +21,7 @@ Run the app:
 ```
 ruby app.rb
 ```
+
+In your browser, navigate to http://localhost:4567/ and you should see the app's main page.
+
+(public/images/strung-out.png)
