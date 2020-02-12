@@ -1,9 +1,8 @@
 require('sinatra')
-require('sinatra/contrib/all')
+require('sinatra/contrib/all') if development?
 require_relative('controllers/guitars_controller')
 require_relative('controllers/manufacturers_controller')
 require_relative('./models/shop.rb')
-also_reload('./models/*')
 
 get '/' do
   if params['manufacturer_id']

@@ -1,8 +1,7 @@
 require('sinatra')
-require('sinatra/contrib/all')
+require('sinatra/contrib/all') if development?
 require_relative('../models/guitar')
 require_relative('../models/manufacturer')
-also_reload('./models/*')
 
 get '/guitars/new' do
   @manufacturers = Manufacturer.all()
