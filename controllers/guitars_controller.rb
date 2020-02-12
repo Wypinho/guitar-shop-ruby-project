@@ -3,7 +3,6 @@ require('sinatra/contrib/all')
 require_relative('../models/guitar')
 require_relative('../models/manufacturer')
 also_reload('./models/*')
-require('pry')
 
 get '/guitars/new' do
   @manufacturers = Manufacturer.all()
